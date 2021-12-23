@@ -102,12 +102,30 @@ function createPeerConnection() {
 	}
 	
 	channel.onmessage = function(event) {
+<<<<<<< HEAD
 		count=event.data
 		localStorage.setItem("count",count)
 		if(event.data.includes("finish")){
 			stop();
 		}
 		
+=======
+		data=event.data
+		console.log(data)
+
+		if (data != 'msg'){
+			data = JSON.parse(data)
+			localStorage.setItem("exercise", data.exercise)
+			localStorage.setItem("cnt", data.cnt)
+			localStorage.setItem("set", data.set)
+			localStorage.setItem("exit", data.exit)
+		}
+			
+		
+		if(event.data.includes("finish")){
+			stop();
+		}
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 	}
 	// register some listeners to help debugging
 	pc.addEventListener('icegatheringstatechange', function() {
@@ -155,7 +173,10 @@ function negotiate() {
 					}
 			});
 	}).then(function() {
+<<<<<<< HEAD
 			// console.log("offer")
+=======
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 			var offer = pc.localDescription;
 			return fetch('/offer', {
 				body: JSON.stringify({
@@ -211,6 +232,7 @@ function start() {
 	localStorage.setItem("cnt", cnt_list)
 	localStorage.setItem("set", set_list)
 	localStorage.setItem("breaktime", breaktime_list)
+<<<<<<< HEAD
 	location.href = "start.html";
 
 	fetch("/save_workout", {
@@ -229,6 +251,12 @@ function start() {
 	.then(data => console.log(data))
 
 	
+=======
+	localStorage.setItem("exit", 1)
+
+	location.href = "start.html";
+
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 }
 
 function start_camera(){
@@ -236,6 +264,7 @@ function start_camera(){
 
 	var constraints = {
 			audio: false,
+<<<<<<< HEAD
 			video: false,
 	};
 
@@ -250,6 +279,22 @@ function start_camera(){
 	} else {
 			constraints.video = true;
 	}
+=======
+			video: true,
+	};
+
+	// var resolution = "700x400";
+	// if (resolution) {
+	// 		resolution = resolution.split('x');
+	// 		constraints.video = {
+	// 				width: parseInt(window.innerHeight, 0),
+	// 				height: parseInt(window.innerWidth, 0),
+	// 				facingMode: "user",
+	// 		};
+	// } else {
+	// 		constraints.video = true;
+	// }
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 
 	if (constraints.video) {
 		document.getElementById('media').style.display = 'block';
@@ -265,8 +310,11 @@ function start_camera(){
 
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 function negotiate_live() {
 	return pc.createOffer().then(function(offer) {
 			return pc.setLocalDescription(offer);
@@ -308,13 +356,17 @@ function negotiate_live() {
 }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 function live_camera(){
 	pc = createPeerConnection();
 
 	var constraints = {
 			audio: false,
+<<<<<<< HEAD
 			video: false,
 	};
 
@@ -329,6 +381,22 @@ function live_camera(){
 	} else {
 			constraints.video = true;
 	}
+=======
+			video: true,
+	};
+
+	// var resolution = "700x400";
+	// if (resolution) {
+	// 		resolution = resolution.split('x');
+	// 		constraints.video = {
+	// 				width: parseInt(window.innerHeight, 0),
+	// 				height: parseInt(window.innerWidth, 0),
+	// 				facingMode: "user",
+	// 		};
+	// } else {
+	// 		constraints.video = true;
+	// }
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 
 	if (constraints.video) {
 		document.getElementById('media').style.display = 'block';
@@ -341,7 +409,10 @@ function live_camera(){
 	}, function(err) {
 			alert('Could not acquire media: ' + err);
 	});
+<<<<<<< HEAD
 
+=======
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 }
 
 
@@ -408,5 +479,24 @@ function record(){
 	console.log(localStorage.getItem("count"))
 }
 function stop(){
+<<<<<<< HEAD
+=======
+
+	fetch("/save_workout", {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			exercise: localStorage.getItem("exercise").split(','),
+			cnt: localStorage.getItem("cnt").split(','),
+			set: localStorage.getItem("set").split(','),
+			exit: localStorage.getItem("exit")
+		})
+	})
+	.then(response => response.json())
+	.then(data => console.log(data))
+	
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 	location.href = "record.html";
 }

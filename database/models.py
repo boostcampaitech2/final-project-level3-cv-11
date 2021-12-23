@@ -15,7 +15,10 @@ class WorkoutFlow(Base):
     sequence = Column(Integer, index=True)
     set = Column(Integer, index=True)
     count = Column(Integer, index=True)
+<<<<<<< HEAD
     breaktime = Column(Integer, index=True)
+=======
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 
     # workout_session = relationship("workout_count", back_populates="workout_done_check")
 
@@ -25,6 +28,10 @@ class WorkoutSession(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     date_time = Column(DATETIME, default=datetime.utcnow)
+<<<<<<< HEAD
+=======
+    exit = Column(Integer, index=True)
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 
     # workout_flow = relationship("workout_count", back_populates="workout_done_check")
 

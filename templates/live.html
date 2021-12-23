@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
+<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="static/live.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
@@ -21,6 +22,30 @@
     button {
       padding: 8px 16px;
     }
+=======
+  <link rel="stylesheet" type="text/css" href="static/pose_estimation.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+  <title>WebRTC demo</title>
+  <style>
+    .frame{
+      overflow: visiblle;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    .media{
+      height:100%;
+      width:100%;
+    }
+
+    .video{
+      height: 80%;
+      width: 100%;
+    }
+  
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
     pre {
       overflow-x: hidden;
       overflow-y: auto;
@@ -28,10 +53,66 @@
     .option {
       margin-bottom: 8px;
     }
+<<<<<<< HEAD
+=======
+
+    .btn_stop {
+      height: 19%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn_stop img {
+      height: 50%;
+      width: 15%;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 800px){
+      .btn_stop img{
+        height: 60%;
+        width: 30%;
+        cursor: pointer;
+      }
+    }
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
   </style>
 </head>
 
 <body onload="live_camera()">
+<<<<<<< HEAD
+=======
+  <header>
+    <nav>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="mylogo" style="cursor: pointer" onclick="location.href='pose_estimation.html'">
+        <p>CarryVan</p><img src="./img/logo.png" />
+      </div>
+      <ul class="nav-links">
+        <li onclick="location.href='record.html'">Record</li>
+      <ul>
+    </nav>
+  </header>
+
+  <section class="home">
+    <div class="cover">
+      <div id="frame" class="frame">
+        <div id="media" class="media">
+          <audio id="audio" autoplay="true"></audio>
+          <video id="video" class="video" autoplay="true" playsinline="true" controls></video>
+          <div class="btn_stop">
+            <img src="./img/stop.png" onclick="stop();"/>
+          </div>
+      </div>
+      </div> 
+    </div>    
+  </section>
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
   <p>
     <span id="ice-gathering-state" style="visibility: hidden; display: none;"></span>
     <span id="ice-gathering-state"></span>
@@ -45,12 +126,21 @@
     <span id="signaling-state"></span>
   </p>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
   <div id="media">
       <audio id="audio" autoplay="true"></audio>
       <video id="video" autoplay="true" playsinline="true" style="margin-left: 5%; width: 95%; height: 100%;"></video>
       <input class="btn_stop" type="button", value="X" onclick="stop();"> 
 
   </div>
+<<<<<<< HEAD
+=======
+>>>>>>> origin/dev
+>>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
   <pre id="data-channel" style="visibility: hidden; display: none;"></pre>
   <pre id="offer-sdp" style="visibility: hidden; display: none;"></pre>
   <pre id="answer-sdp" style="visibility: hidden; display: none;"></pre>
