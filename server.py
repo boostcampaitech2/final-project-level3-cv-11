@@ -148,22 +148,6 @@ async def one(request: Request):
 @app.post("/save_workout")
 async def save_workout(params: Info, db: Session = Depends(get_db)):
     
-<<<<<<< HEAD
-    exercise = params.exercise.split(",")
-    cnt = [int(x) for x in params.cnt.split(",")]
-    set = [int(x) for x in params.set.split(",")]
-    
-    breaktime = [int(x) for x in params.breaktime.split(",")]
-
-    most_recent = crud.get_recent_session(db)
-    tot_len = len(exercise) + len(breaktime)
-
-    crud.save_workout_session(db)
-
-    for i in range(len(exercise)):
-        sw = SaveWorkout
-        sw.workout_session = int(most_recent.id) + 1
-=======
     exercise = params.exercise
     cnt = params.cnt
     set = params.set
@@ -175,23 +159,15 @@ async def save_workout(params: Info, db: Session = Depends(get_db)):
     for i in range(len(exercise)):
         sw = SaveWorkout
         sw.workout_session = int(most_recent.id)
->>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
         sw.sequence = i
         
         sw.workout_name = exercise[i]
         sw.set = set[i]
         sw.count = cnt[i]
-<<<<<<< HEAD
-        sw.breaktime = 0
-
-        crud.save_counted_workout(db, sw)
-    
-=======
         
         if int(sw.count) > 0:
             crud.save_counted_workout(db, sw)
  
->>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
     return "saved!"
     
 @app.post("/workout_data")
@@ -204,13 +180,9 @@ async def recent_workouts(db: Session = Depends(get_db)):
 
        workout_flow = crud.get_workout_flows_by_id(db, session.id)
        workout_flow.insert(0, session.date_time)
-<<<<<<< HEAD
-       return_list.append(workout_flow)
-=======
        workout_flow.insert(1, session.exit)
        if len(return_list) < 7:
            return_list.append(workout_flow)
->>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 
     return return_list
 @app.post("/offer2")
@@ -224,15 +196,6 @@ async def offer(params: Live):
     # prepare local media
     recorder = MediaBlackhole()
 
-<<<<<<< HEAD
-    @pc.on("datachannel")
-    def on_datachannel(channel):
-        @channel.on("message")
-        def on_message(message):
-            if isinstance(message, str) and message.startswith("ping"):
-                channel.send("pong" + message[4:])
-=======
->>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
 
     @pc.on("iceconnectionstatechange")
     async def on_iceconnectionstatechange():
@@ -273,9 +236,6 @@ async def on_shutdown(app):
     # close peer connections
     coros = [pc.close() for pc in pcs]
     await asyncio.gather(*coros)
-<<<<<<< HEAD
-    pcs.clear()
-=======
     pcs.clear()
 
 if __name__ == "__main__":
@@ -283,4 +243,3 @@ if __name__ == "__main__":
                 host="0.0.0.0",
                 port=8080,
                 reload=True)
->>>>>>> f538419857fde15e7b275b8ec49b380a54fe6f3d
