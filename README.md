@@ -33,23 +33,30 @@ Original Repository
 </br>
 
 <details open>
-<summary>Install</summary>
+<summary>Deploy on Local Machine</summary>
+</br>
 
-[**Python>=3.8.0**](https://www.python.org/) 버전이 요구됩니다. 
+📌 Local machine에서 실행할 시 모바일 기기의 카메라 접근은 **불가능**합니다.
+
+📌 [**Python>=3.8.0**](https://www.python.org/) 버전이 요구됩니다. 
 
 ```bash
 $ git clone https://github.com/boostcampaitech2/final-project-level3-cv-11.git 
 $ cd final-project-level3-cv-11
 $ pip install -r requirements.txt
+$ uvicorn server:app --port 5000 --reload
 ```
+
+-> http://127.0.0.1:5000 으로 접속할 수 있습니다.
 
 </details>
 
 
 <details open>
-<summary>Deploy by docker</summary>
+<summary>Deploy on Docker Container</summary>
+</br>
 
-`docker-compose.yml`파일을 사용해서 docker container를 띄워 local server를 구축합니다.
+📌`docker-compose.yml`파일을 사용해서 docker container를 띄워 local server를 구축합니다.
 
 </br>
 
@@ -57,6 +64,5 @@ $ pip install -r requirements.txt
 $ docker-compose up -d
 ```
 
+-> https://{IPv4 Adress}:8080 으로 접속할 수 있습니다.
 </details>
-
-
