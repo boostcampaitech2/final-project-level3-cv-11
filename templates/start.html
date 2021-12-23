@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="shortcut icon" href="#">
+  <link rel="stylesheet" type="text/css" href="static/start.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+  <title>WebRTC demo</title>
+  <style>
+    @media( orientation: portrait ){
+      html {
+        transform: rotate(90deg);
+        transform-origin: top right;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100vh;
+        height: 100vw;
+      }
+    }
+    button {
+      padding: 8px 16px;
+    }
+    pre {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    .option {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+
+<body onload="start_camera()">
+  <p>
+    <span id="ice-gathering-state" style="visibility: hidden; display: none;"></span>
+    <span id="ice-gathering-state"></span>
+  </p>
+  <p>
+    <span id="ice-connection-state" style="visibility: hidden; display: none;"></span>
+    <span id="ice-connection-state"></span>
+  </p>
+  <p>
+    <span id="signaling-state" style="visibility: hidden; display: none;"></span>
+    <span id="signaling-state"></span>
+  </p>
+
+  <div id="media">
+      <audio id="audio" ></audio>
+      <video id="video" autoplay="true" playsinline="true" style="position: relative;margin-left: 10%; width: 90%; height: 100%;"></video>
+      <input class="btn_stop" type="button", value="X" onclick="stop();"> 
+    </div>
+  <pre id="data-channel" style="visibility: hidden; display: none;"></pre>
+  <pre id="offer-sdp" style="visibility: hidden; display: none;"></pre>
+  <pre id="answer-sdp" style="visibility: hidden; display: none;"></pre>
+  <script src="static/client.js"></script>
+</body>
+</html>
